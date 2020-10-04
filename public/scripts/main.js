@@ -1,4 +1,5 @@
 var input = document.querySelector('#display');
+input.value = localStorage.getItem('lastResult')
 
 function insert(num){
     input.value = input.value + num;
@@ -12,7 +13,8 @@ function equal(){
     var exp = document.form.textview.value;
     console.log(exp);
     if(exp){
-       document.form.textview.value = eval(exp);
+        input.value = eval(exp);
+        localStorage.setItem('lastResult', input.value)
   }
   else {
       alert('Digite um valor')

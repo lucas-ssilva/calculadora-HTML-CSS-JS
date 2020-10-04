@@ -1,6 +1,7 @@
 "use strict";
 
 var input = document.querySelector('#display');
+input.value = localStorage.getItem('lastResult');
 
 function insert(num) {
   input.value = input.value + num;
@@ -15,7 +16,8 @@ function equal() {
   console.log(exp);
 
   if (exp) {
-    document.form.textview.value = eval(exp);
+    input.value = eval(exp);
+    localStorage.setItem('lastResult', input.value);
   } else {
     alert('Digite um valor');
   }
